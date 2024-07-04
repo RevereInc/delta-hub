@@ -27,20 +27,15 @@ public class ProfileRepository {
      */
     public Profile getProfile(UUID uuid) {
         if (!profiles.containsKey(uuid)) {
-            loadProfile(uuid);
+            Profile profile = new Profile(uuid);
+            profile.loadProfile();
+            addProfile(profile);
+            return profile;
         }
         return profiles.get(uuid);
     }
 
     public void addProfile(Profile profile) {
         profiles.put(profile.getUuid(), profile);
-    }
-
-    private void loadProfile(UUID uuid) {
-        // Load profile from database
-    }
-
-    private void saveProfile(Profile profile) {
-        // Save profile to database
     }
 }

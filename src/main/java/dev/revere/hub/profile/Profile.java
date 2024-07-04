@@ -27,4 +27,12 @@ public class Profile {
         this.uuid = uuid;
         this.name = Bukkit.getOfflinePlayer(uuid).getName();
     }
+
+    public void loadProfile() {
+
+    }
+
+    public void saveProfile() {
+
+    }
 }
