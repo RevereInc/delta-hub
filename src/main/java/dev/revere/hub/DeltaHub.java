@@ -1,16 +1,15 @@
 package dev.revere.hub;
 
+import dev.revere.hub.api.command.CommandManager;
+import dev.revere.hub.api.menu.MenuListener;
 import dev.revere.hub.commands.DeltaHubCommand;
 import dev.revere.hub.commands.global.ProfileCommand;
 import dev.revere.hub.handler.ConfigHandler;
 import dev.revere.hub.profile.listener.ProfileListener;
-import dev.revere.hub.scoreboard.handler.ScoreboardHandler;
 import dev.revere.hub.spawn.SpawnHandler;
 import dev.revere.hub.spawn.command.SetSpawnCommand;
 import dev.revere.hub.utils.ServerUtil;
 import dev.revere.hub.utils.chat.CC;
-import dev.revere.hub.api.command.CommandManager;
-import dev.revere.hub.api.menu.MenuListener;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -33,7 +32,6 @@ public class DeltaHub extends JavaPlugin {
     @Getter
     private static DeltaHub instance;
 
-    private ScoreboardHandler scoreboardHandler;
     private CommandManager commandManager;
     private ConfigHandler configHandler;
     private SpawnHandler spawnHandler;
@@ -74,8 +72,6 @@ public class DeltaHub extends JavaPlugin {
     }
 
     private void registerHandlers() {
-        this.scoreboardHandler = new ScoreboardHandler();
-
         this.configHandler = new ConfigHandler();
 
         this.spawnHandler = new SpawnHandler();
