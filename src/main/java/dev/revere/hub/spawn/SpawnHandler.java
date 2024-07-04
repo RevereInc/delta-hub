@@ -1,7 +1,7 @@
 package dev.revere.hub.spawn;
 
 import dev.revere.hub.DeltaHub;
-import dev.revere.hub.handler.ConfigHandler;
+import dev.revere.hub.config.ConfigHandler;
 import dev.revere.hub.utils.LocationUtil;
 import dev.revere.hub.utils.chat.CC;
 import lombok.Getter;
@@ -18,7 +18,7 @@ import org.bukkit.entity.Player;
 @Getter
 public class SpawnHandler {
 
-    private Location joinLocation;
+    private Location spawn;
 
     /**
      * Load the spawn location from the settings.yml file
@@ -33,7 +33,7 @@ public class SpawnHandler {
             return;
         }
 
-        joinLocation = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ(), location.getYaw(), location.getPitch());
+        spawn = new Location(location.getWorld(), location.getX(), location.getY(), location.getZ(), location.getYaw(), location.getPitch());
     }
 
     /**
@@ -42,7 +42,7 @@ public class SpawnHandler {
      * @param location the location to set
      */
     public void setSpawn(Location location) {
-        this.joinLocation = location;
+        this.spawn = location;
         FileConfiguration config = ConfigHandler.getInstance().getSettingsConfig();
 
         config.set("spawn.join-location", LocationUtil.serialize(location));
@@ -56,7 +56,7 @@ public class SpawnHandler {
      * @param player the player to teleport
      */
     public void teleportToSpawn(Player player) {
-        Location spawnLocation = getJoinLocation();
+        Location spawnLocation = getSpawn();
         if (spawnLocation != null) {
             player.teleport(spawnLocation);
         } else {

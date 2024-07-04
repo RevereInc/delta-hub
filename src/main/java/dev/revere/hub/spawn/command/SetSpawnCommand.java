@@ -1,7 +1,7 @@
 package dev.revere.hub.spawn.command;
 
 import dev.revere.hub.DeltaHub;
-import dev.revere.hub.handler.ConfigHandler;
+import dev.revere.hub.config.ConfigHandler;
 import dev.revere.hub.utils.chat.CC;
 import dev.revere.hub.api.command.BaseCommand;
 import dev.revere.hub.api.command.CommandArgs;

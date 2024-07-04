@@ -1,6 +1,6 @@
 package dev.revere.hub.locale;
 
-import dev.revere.hub.handler.ConfigHandler;
+import dev.revere.hub.config.ConfigHandler;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 

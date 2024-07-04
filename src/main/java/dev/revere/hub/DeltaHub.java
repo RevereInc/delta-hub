@@ -4,10 +4,12 @@ import dev.revere.hub.api.command.CommandManager;
 import dev.revere.hub.api.menu.MenuListener;
 import dev.revere.hub.commands.DeltaHubCommand;
 import dev.revere.hub.commands.global.ProfileCommand;
-import dev.revere.hub.handler.ConfigHandler;
+import dev.revere.hub.config.ConfigHandler;
+import dev.revere.hub.hotbar.listener.HotbarListener;
 import dev.revere.hub.profile.listener.ProfileListener;
 import dev.revere.hub.spawn.SpawnHandler;
 import dev.revere.hub.spawn.command.SetSpawnCommand;
+import dev.revere.hub.spawn.listener.SpawnListener;
 import dev.revere.hub.utils.ServerUtil;
 import dev.revere.hub.utils.chat.CC;
 import lombok.Getter;
@@ -86,6 +88,8 @@ public class DeltaHub extends JavaPlugin {
     private void registerListeners() {
         Arrays.asList(
                 new ProfileListener(),
+                new SpawnListener(),
+                new HotbarListener(),
                 new MenuListener()
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
     }

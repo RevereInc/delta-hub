@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
  */
 @UtilityClass
 public class CC {
-    @Getter private final String prefix = "&8[&bDelta&8] ";
+    @Getter private final String prefix = "&8[&bDelta&8] &r";
 
     public static final String MENU_BAR = ChatColor.DARK_GRAY.toString() + ChatColor.STRIKETHROUGH + "------------------------";
 

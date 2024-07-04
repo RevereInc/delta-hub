@@ -1,6 +1,7 @@
 package dev.revere.hub.profile.listener;
 
 import dev.revere.hub.DeltaHub;
+import dev.revere.hub.hotbar.Hotbar;
 import dev.revere.hub.utils.chat.Logger;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -19,15 +20,17 @@ public class ProfileListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
+
         joinedPlayer.setFlySpeed(1 * 0.1F);
         joinedPlayer.setWalkSpeed(2 * 0.1F);
 
-        event.setJoinMessage(null);
-        Location spawnLocation = DeltaHub.getInstance().getSpawnHandler().getJoinLocation();
-        if (spawnLocation != null) {
-            event.getPlayer().teleport(spawnLocation);
-        } else {
-            Logger.logError("&4&l(!) SPAWN LOCATION IS NULL (!)");
+        if (joinedPlayer.hasPermission("deltahub.donator.fly")) {
+            joinedPlayer.setAllowFlight(true);
+            joinedPlayer.setFlying(true);
         }
+
+        event.setJoinMessage(null);
+        Hotbar.applySpawnItems(joinedPlayer);
+        DeltaHub.getInstance().getSpawnHandler().teleportToSpawn(joinedPlayer);
     }
 }

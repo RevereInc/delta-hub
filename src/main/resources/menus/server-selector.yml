@@ -1,0 +1,27 @@
+title: "&b&lServer Selector"
+items:
+  tnt-tag:
+    name: "&b&lTNT TAG"
+    material: TNT
+    slot: 12
+    command: "join eu-tnttag-1"
+    lore:
+      - "&8&m----------------------"
+      - "&7Don't be it!"
+      - "&7Avoid being it by tagging"
+      - "&7other players."
+      - ""
+      - "&aClick to play!"
+      - "&8&m----------------------"
+  smp:
+    name: "&b&lSMP"
+    material: GRASS_BLOCK
+    slot: 14
+    command: "join eu-smp-1"
+    lore:
+      - "&8&m----------------------"
+      - "&7Survive and build together"
+      - "&7in a shared world."
+      - ""
+      - "&aClick to play!"
+      - "&8&m----------------------"

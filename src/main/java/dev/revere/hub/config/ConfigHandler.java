@@ -1,4 +1,4 @@
-package dev.revere.hub.handler;
+package dev.revere.hub.config;
 
 import dev.revere.hub.DeltaHub;
 import dev.revere.hub.utils.chat.Logger;
@@ -26,12 +26,13 @@ public class ConfigHandler {
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
     private final String[] configFileNames = {
-            "settings.yml", "messages.yml", "scoreboard.yml"
+            "settings.yml", "messages.yml", "scoreboard.yml", "menus/server-selector.yml"
     };
 
     private final FileConfiguration settingsConfig;
     private final FileConfiguration messagesConfig;
     private final FileConfiguration scoreboardConfig;
+    private final FileConfiguration serverSelectorConfig;
 
     public ConfigHandler() {
         instance = this;
@@ -43,6 +44,7 @@ public class ConfigHandler {
         settingsConfig = getConfig("settings.yml");
         messagesConfig = getConfig("messages.yml");
         scoreboardConfig = getConfig("scoreboard.yml");
+        serverSelectorConfig = getConfig("menus/server-selector.yml");
     }
 
     private void loadConfig(String fileName) {
