@@ -1,0 +1,111 @@
+package dev.revere.hub;
+
+import dev.revere.hub.commands.DeltaHubCommand;
+import dev.revere.hub.commands.global.ProfileCommand;
+import dev.revere.hub.handler.ConfigHandler;
+import dev.revere.hub.profile.listener.ProfileListener;
+import dev.revere.hub.scoreboard.handler.ScoreboardHandler;
+import dev.revere.hub.spawn.SpawnHandler;
+import dev.revere.hub.spawn.command.SetSpawnCommand;
+import dev.revere.hub.utils.ServerUtil;
+import dev.revere.hub.utils.chat.CC;
+import dev.revere.hub.api.command.CommandManager;
+import dev.revere.hub.api.menu.MenuListener;
+import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
+import java.util.Arrays;
+
+/**
+ * @author Emmy
+ * @project DeltaHub
+ * @date 04/07/2024 - 20:11
+ */
+@Getter
+@Setter
+public class DeltaHub extends JavaPlugin {
+
+    @Getter
+    private static DeltaHub instance;
+
+    private ScoreboardHandler scoreboardHandler;
+    private CommandManager commandManager;
+    private ConfigHandler configHandler;
+    private SpawnHandler spawnHandler;
+
+    @Override
+    public void onEnable() {
+        instance = this;
+
+        long start = System.currentTimeMillis();
+
+        checkDescription();
+        registerHandlers();
+        registerManagers();
+        registerListeners();
+        registerCommands();
+
+        long end = System.currentTimeMillis();
+        long timeTaken = end - start;
+
+        CC.pluginEnabled(timeTaken);
+    }
+
+    @Override
+    public void onDisable() {
+        ServerUtil.disconnectPlayers();
+        CC.pluginDisabled();
+    }
+
+    private void checkDescription() {
+        String author = getDescription().getAuthors().get(0);
+        String expectedAuthor = "Revere Development";
+
+        Bukkit.getConsoleSender().sendMessage(CC.translate(CC.getPrefix() + "Expected author: &a" + expectedAuthor + "&f, Retrieved author: &c" + author));
+
+        if (!author.equalsIgnoreCase(expectedAuthor)) {
+            System.exit(0);
+        }
+    }
+
+    private void registerHandlers() {
+        this.scoreboardHandler = new ScoreboardHandler();
+
+        this.configHandler = new ConfigHandler();
+
+        this.spawnHandler = new SpawnHandler();
+        this.spawnHandler.loadSpawn();
+    }
+
+    private void registerManagers() {
+        this.commandManager = new CommandManager(this);
+        this.commandManager.registerCommandsInPackage("dev.revere.hub");
+    }
+
+    private void registerListeners() {
+        Arrays.asList(
+                new ProfileListener(),
+                new MenuListener()
+        ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
+    }
+
+    private void registerCommands() {
+        new DeltaHubCommand();
+        new SetSpawnCommand();
+        new ProfileCommand();
+    }
+
+    private void registerScoreboard() {
+
+    }
+
+    public FileConfiguration getConfig(String fileName) {
+        File configFile = new File(getDataFolder(), fileName);
+        return YamlConfiguration.loadConfiguration(configFile);
+    }
+}

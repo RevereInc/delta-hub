@@ -1,0 +1,3 @@
+no-permission: "&cI'm sorry, but it doesn't seem like you have permission to execute this command."
+
+spawn-set: "&aSuccessfully set new join location! \n &8- &7{world}: {x}, {y}, {z} (Yaw: {yaw}, Pitch: {pitch})"

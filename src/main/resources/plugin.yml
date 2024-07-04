@@ -1,0 +1,9 @@
+name: DeltaHub
+version: '${project.version}'
+main: dev.revere.hub.DeltaHub
+author: Revere Development
+description: '${project.description}'
+website: revere.dev
+api-version: '1.20'
+depend:
+  - PlaceholderAPI

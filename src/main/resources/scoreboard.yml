@@ -1,0 +1,19 @@
+scoreboard:
+  enabled: true
+  title:
+    text: "&b&lDeltaHub"
+    animated: true
+    ticks: 10
+    animation:
+      - "&b&lDeltaHub"
+      - "&b&lDeltaHub"
+      - "&b&lDeltaHub"
+      - "&f&lDeltaHub"
+      - "&f&lDeltaHub"
+      - "&f&lDeltaHub"
+  lines:
+    - ""
+    - "&fPlayers: &b%online%"
+    - "&fRank: &aDefault"
+    - ""
+    - "&bplay.revere.dev"

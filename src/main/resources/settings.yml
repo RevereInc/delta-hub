@@ -1,0 +1,6 @@
+command:
+  anti-syntax-message: "&cYou cannot execute {argument}."
+  syntax-bypass-perm: "deltahub.owner"
+
+spawn:
+  join-location: world:0.5:73.0:0.5:90.0:0.0
