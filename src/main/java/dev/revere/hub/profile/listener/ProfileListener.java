@@ -1,9 +1,7 @@
 package dev.revere.hub.profile.listener;
 
 import dev.revere.hub.DeltaHub;
-import dev.revere.hub.hotbar.Hotbar;
-import dev.revere.hub.utils.chat.Logger;
-import org.bukkit.Location;
+import dev.revere.hub.hotbar.HotbarUtility;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -30,7 +28,7 @@ public class ProfileListener implements Listener {
         }
 
         event.setJoinMessage(null);
-        Hotbar.applySpawnItems(joinedPlayer);
+        HotbarUtility.applySpawnItems(joinedPlayer);
         DeltaHub.getInstance().getSpawnHandler().teleportToSpawn(joinedPlayer);
     }
 }

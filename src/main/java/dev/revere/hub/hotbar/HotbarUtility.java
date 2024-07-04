@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
  * @date 04/07/2024 - 22:53
  */
 @UtilityClass
-public class Hotbar {
+public class HotbarUtility {
     public void applySpawnItems(Player player) {
         player.getInventory().setItem(HotbarItem.SERVER_SELECTOR.getSlot(), HotbarItem.SERVER_SELECTOR.getItem());
         player.getInventory().setItem(HotbarItem.HUB_SELECTOR.getSlot(), HotbarItem.HUB_SELECTOR.getItem());
