@@ -30,6 +30,11 @@ public class HotbarListener implements Listener {
         if (event.getAction() != Action.RIGHT_CLICK_AIR && event.getAction() != Action.RIGHT_CLICK_BLOCK) {
             return;
         }
+
+        if (hotbarItem.getCommand() == null) {
+            return;
+        }
+
         player.performCommand(hotbarItem.getCommand());
     }
 }

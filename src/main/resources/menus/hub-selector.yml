@@ -2,7 +2,7 @@ title: "&b&lHub Selector"
 rows: 1
 items:
   eu-hub-1:
-    name: "&b&lEU-HUB-2"
+    name: "&b&lEU-HUB-1"
     material: TNT
     slot: 3
     command: "join eu-hub-1"

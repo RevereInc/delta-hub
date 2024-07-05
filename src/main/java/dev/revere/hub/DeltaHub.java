@@ -5,6 +5,7 @@ import dev.revere.hub.api.menu.MenuListener;
 import dev.revere.hub.commands.DeltaHubCommand;
 import dev.revere.hub.commands.global.ProfileCommand;
 import dev.revere.hub.config.ConfigHandler;
+import dev.revere.hub.enderbutt.EnderPearlListener;
 import dev.revere.hub.hotbar.listener.HotbarListener;
 import dev.revere.hub.profile.listener.ProfileListener;
 import dev.revere.hub.spawn.SpawnHandler;
@@ -87,9 +88,10 @@ public class DeltaHub extends JavaPlugin {
 
     private void registerListeners() {
         Arrays.asList(
+                new EnderPearlListener(),
                 new ProfileListener(),
-                new SpawnListener(),
                 new HotbarListener(),
+                new SpawnListener(),
                 new MenuListener()
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
     }

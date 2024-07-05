@@ -15,6 +15,7 @@ public enum HotbarItem {
 
     SERVER_SELECTOR(Material.COMPASS, "serverselector", "&bServer Selector &7(Right Click)", 3),
     HUB_SELECTOR(Material.NETHER_STAR, "hubselector", "&bHub Selector &7(Right Click)", 5),
+    ENDER_BUTT(Material.ENDER_PEARL, "&bEnder Butt &7(Right Click)", 0),
 
     ;
 
@@ -28,6 +29,10 @@ public enum HotbarItem {
         this.command = command;
         this.name = name;
         this.slot = slot;
+    }
+
+    HotbarItem(Material material, String name, int slot) {
+        this(material, null, name, slot);
     }
 
     public ItemStack getItem() {
