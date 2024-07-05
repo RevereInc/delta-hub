@@ -1,4 +1,4 @@
-package dev.revere.hub.menus.serverselector;
+package dev.revere.hub.menus.hubselector;
 
 import dev.revere.hub.api.menu.Button;
 import dev.revere.hub.api.menu.Menu;
@@ -21,19 +21,19 @@ import java.util.Objects;
 /**
  * @author Emmy
  * @project DeltaHub
- * @date 05/07/2024 - 00:13
+ * @date 05/07/2024 - 20:25
  */
-public class ServerSelectorMenu extends Menu {
+public class HubSelectorMenu extends Menu {
     @Override
     public String getTitle(Player player) {
-        return CC.translate(ConfigHandler.getInstance().getServerSelectorConfig().getString("title"));
+        return CC.translate(ConfigHandler.getInstance().getHubSelectorConfig().getString("title"));
     }
 
     @Override
     public Map<Integer, Button> getButtons(Player player) {
         Map<Integer, Button> buttons = new HashMap<>();
 
-        FileConfiguration config = ConfigHandler.getInstance().getServerSelectorConfig();
+        FileConfiguration config = ConfigHandler.getInstance().getHubSelectorConfig();
         ConfigurationSection section = config.getConfigurationSection("items");
 
         for (String key : Objects.requireNonNull(section).getKeys(false)) {
@@ -45,7 +45,7 @@ public class ServerSelectorMenu extends Menu {
             List<String> lore = buttonSection.getStringList("lore");
             String command = buttonSection.getString("command");
 
-            buttons.put(slot, new ServerSelectorButton(title, material, lore, command));
+            buttons.put(slot, new HubSelectorButton(title, material, lore, command));
         }
 
         addGlass(buttons);
@@ -55,19 +55,17 @@ public class ServerSelectorMenu extends Menu {
 
     @Override
     public int getSize() {
-        return ConfigHandler.getInstance().getServerSelectorConfig().getInt("rows") * 9;
+        return ConfigHandler.getInstance().getHubSelectorConfig().getInt("rows") * 9;
     }
 
-
-
     @RequiredArgsConstructor
-    private static class ServerSelectorButton extends Button {
+    private static class HubSelectorButton extends Button {
         private final String title;
         private final Material material;
         private final List<String> lore;
         private String command;
 
-        public ServerSelectorButton(String title, Material material, List<String> lore, String command) {
+        public HubSelectorButton(String title, Material material, List<String> lore, String command) {
             this.title = title;
             this.material = material;
             this.lore = lore;

@@ -3,6 +3,7 @@ package dev.revere.hub.commands.selectors;
 import dev.revere.hub.api.command.BaseCommand;
 import dev.revere.hub.api.command.CommandArgs;
 import dev.revere.hub.api.command.annotation.Command;
+import dev.revere.hub.menus.hubselector.HubSelectorMenu;
 import org.bukkit.entity.Player;
 
 /**
@@ -16,6 +17,6 @@ public class HubSelectorCommand extends BaseCommand {
     public void onCommand(CommandArgs command) {
         Player player = command.getPlayer();
 
-        player.sendMessage("e");
+        new HubSelectorMenu().openMenu(player);
     }
 }

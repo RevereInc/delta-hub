@@ -26,13 +26,14 @@ public class ConfigHandler {
     private final Map<String, FileConfiguration> fileConfigurations = new HashMap<>();
 
     private final String[] configFileNames = {
-            "settings.yml", "messages.yml", "scoreboard.yml", "menus/server-selector.yml"
+            "settings.yml", "messages.yml", "scoreboard.yml", "menus/server-selector.yml", "menus/hub-selector.yml"
     };
 
     private final FileConfiguration settingsConfig;
     private final FileConfiguration messagesConfig;
     private final FileConfiguration scoreboardConfig;
     private final FileConfiguration serverSelectorConfig;
+    private final FileConfiguration hubSelectorConfig;
 
     public ConfigHandler() {
         instance = this;
@@ -45,6 +46,7 @@ public class ConfigHandler {
         messagesConfig = getConfig("messages.yml");
         scoreboardConfig = getConfig("scoreboard.yml");
         serverSelectorConfig = getConfig("menus/server-selector.yml");
+        hubSelectorConfig = getConfig("menus/hub-selector.yml");
     }
 
     private void loadConfig(String fileName) {
