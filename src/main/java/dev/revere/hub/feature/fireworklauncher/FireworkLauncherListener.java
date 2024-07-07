@@ -62,9 +62,15 @@ public class FireworkLauncherListener implements Listener {
                     followEffectTask = new BukkitRunnable() {
                         @Override
                         public void run() {
-                            if (!player.isOnline() || currentFirework.isDead() || !currentFirework.isValid() || !currentFirework.getPassenger().equals(player)) {
-                                currentFirework.remove();
-                                cancel();
+                            if (!player.isOnline() || currentFirework.isDead() || !currentFirework.isValid() || currentFirework.getPassenger() == null || !currentFirework.getPassenger().equals(player)) {
+                                if (currentFirework != null) {
+                                    currentFirework.remove();
+                                    currentFirework = null;
+                                }
+                                if (followEffectTask != null) {
+                                    followEffectTask.cancel();
+                                    followEffectTask = null;
+                                }
                             }
                         }
                     }.runTaskTimer(plugin, 1L, 1L);
