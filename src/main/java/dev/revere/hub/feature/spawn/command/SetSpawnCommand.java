@@ -22,7 +22,7 @@ public class SetSpawnCommand extends BaseCommand {
         Location location = player.getLocation();
         DeltaHub.getInstance().getSpawnHandler().setSpawn(location);
 
-        String message = ConfigHandler.getInstance().getMessagesConfig().getString("spawn.spawn-set");
+        String message = ConfigHandler.getInstance().getMessagesConfig().getString("spawn.set");
         message = message.replace("{world}", location.getWorld().getName())
                 .replace("{x}", String.format("%.2f", location.getX()))
                 .replace("{y}", String.format("%.2f", location.getY()))
