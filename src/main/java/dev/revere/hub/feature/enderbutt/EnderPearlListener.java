@@ -1,7 +1,7 @@
-package dev.revere.hub.enderbutt;
+package dev.revere.hub.feature.enderbutt;
 
 import dev.revere.hub.config.ConfigHandler;
-import dev.revere.hub.hotbar.HotbarItem;
+import dev.revere.hub.feature.hotbar.HotbarItem;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

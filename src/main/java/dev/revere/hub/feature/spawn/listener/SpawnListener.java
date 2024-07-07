@@ -1,4 +1,4 @@
-package dev.revere.hub.spawn.listener;
+package dev.revere.hub.feature.spawn.listener;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;

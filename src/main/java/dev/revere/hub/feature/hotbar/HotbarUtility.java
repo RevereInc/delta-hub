@@ -1,4 +1,4 @@
-package dev.revere.hub.hotbar;
+package dev.revere.hub.feature.hotbar;
 
 import lombok.experimental.UtilityClass;
 import org.bukkit.entity.Player;
@@ -14,5 +14,6 @@ public class HotbarUtility {
         player.getInventory().setItem(HotbarItem.SERVER_SELECTOR.getSlot(), HotbarItem.SERVER_SELECTOR.getItem());
         player.getInventory().setItem(HotbarItem.HUB_SELECTOR.getSlot(), HotbarItem.HUB_SELECTOR.getItem());
         player.getInventory().setItem(HotbarItem.ENDER_BUTT.getSlot(), HotbarItem.ENDER_BUTT.getItem());
+        player.getInventory().setItem(HotbarItem.FIREWORK.getSlot(), HotbarItem.FIREWORK.getItem());
     }
 }

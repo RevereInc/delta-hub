@@ -5,12 +5,14 @@ import dev.revere.hub.api.menu.MenuListener;
 import dev.revere.hub.commands.DeltaHubCommand;
 import dev.revere.hub.commands.global.ProfileCommand;
 import dev.revere.hub.config.ConfigHandler;
-import dev.revere.hub.enderbutt.EnderPearlListener;
-import dev.revere.hub.hotbar.listener.HotbarListener;
+import dev.revere.hub.feature.doublejump.DoubleJumpListener;
+import dev.revere.hub.feature.enderbutt.EnderPearlListener;
+import dev.revere.hub.feature.fireworklauncher.FireworkLauncherListener;
+import dev.revere.hub.feature.hotbar.listener.HotbarListener;
 import dev.revere.hub.profile.listener.ProfileListener;
-import dev.revere.hub.spawn.SpawnHandler;
-import dev.revere.hub.spawn.command.SetSpawnCommand;
-import dev.revere.hub.spawn.listener.SpawnListener;
+import dev.revere.hub.feature.spawn.SpawnHandler;
+import dev.revere.hub.feature.spawn.command.SetSpawnCommand;
+import dev.revere.hub.feature.spawn.listener.SpawnListener;
 import dev.revere.hub.utils.ServerUtil;
 import dev.revere.hub.utils.chat.CC;
 import lombok.Getter;
@@ -92,6 +94,8 @@ public class DeltaHub extends JavaPlugin {
                 new ProfileListener(),
                 new HotbarListener(),
                 new SpawnListener(),
+                new DoubleJumpListener(),
+                new FireworkLauncherListener(),
                 new MenuListener()
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
     }

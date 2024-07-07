@@ -1,4 +1,4 @@
-package dev.revere.hub.hotbar;
+package dev.revere.hub.feature.hotbar;
 
 import dev.revere.hub.api.menu.item.ItemBuilder;
 import lombok.Getter;
@@ -16,6 +16,7 @@ public enum HotbarItem {
     SERVER_SELECTOR(Material.COMPASS, "serverselector", "&bServer Selector &7(Right Click)", 3),
     HUB_SELECTOR(Material.NETHER_STAR, "hubselector", "&bHub Selector &7(Right Click)", 5),
     ENDER_BUTT(Material.ENDER_PEARL, "&bEnder Butt &7(Right Click)", 0),
+    FIREWORK(Material.FIREWORK_ROCKET, "&bFirework Launcher &7(Right Click)", 8),
 
     ;
 

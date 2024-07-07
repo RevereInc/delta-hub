@@ -1,4 +1,4 @@
-package dev.revere.hub.spawn.command;
+package dev.revere.hub.feature.spawn.command;
 
 import dev.revere.hub.DeltaHub;
 import dev.revere.hub.config.ConfigHandler;

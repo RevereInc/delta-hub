@@ -3,3 +3,9 @@ spawn:
 
 enderbutt:
   enabled: true
+
+double-jump:
+  enabled: true
+
+firework-launcher:
+  enabled: true

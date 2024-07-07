@@ -1,7 +1,7 @@
 package dev.revere.hub.profile.listener;
 
 import dev.revere.hub.DeltaHub;
-import dev.revere.hub.hotbar.HotbarUtility;
+import dev.revere.hub.feature.hotbar.HotbarUtility;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -22,9 +22,8 @@ public class ProfileListener implements Listener {
         joinedPlayer.setFlySpeed(1 * 0.1F);
         joinedPlayer.setWalkSpeed(2 * 0.1F);
 
-        if (joinedPlayer.hasPermission("deltahub.donator.fly")) {
+        if (DeltaHub.getInstance().getConfigHandler().getSettingsConfig().getBoolean("double-jump.enabled")) {
             joinedPlayer.setAllowFlight(true);
-            joinedPlayer.setFlying(true);
         }
 
         event.setJoinMessage(null);

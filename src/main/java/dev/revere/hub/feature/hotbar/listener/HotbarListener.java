@@ -1,6 +1,6 @@
-package dev.revere.hub.hotbar.listener;
+package dev.revere.hub.feature.hotbar.listener;
 
-import dev.revere.hub.hotbar.HotbarItem;
+import dev.revere.hub.feature.hotbar.HotbarItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
