@@ -31,10 +31,10 @@ public class HotbarListener implements Listener {
             return;
         }
 
-        if (hotbarItem.getCommand() == null) {
-            return;
+        if (hotbarItem.getCommand() != null) {
+            player.performCommand(hotbarItem.getCommand());
         }
 
-        player.performCommand(hotbarItem.getCommand());
+        event.setCancelled(true);
     }
 }
