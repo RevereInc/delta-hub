@@ -1,20 +1,20 @@
-title: "&b&lHub Selector"
-rows: 1
+title: "&8Hub Selector"
+rows: 3
 items:
   eu-hub-1:
     name: "&b&lEU-HUB-1"
-    material: TNT
-    slot: 3
-    command: "join eu-hub-1"
+    material: NETHER_STAR
+    slot: 12
+    command: "joinqueue lobby"
     lore:
       - "&8&m----------------------"
       - "&aClick to join!"
       - "&8&m----------------------"
   eu-hub-2:
     name: "&b&lEU-HUB-2"
-    material: GRASS_BLOCK
-    slot: 5
-    command: "join eu-hub-2"
+    material: NETHER_STAR
+    slot: 14
+    command: "joinqueue eu-hub-2"
     lore:
       - "&8&m----------------------"
       - "&aClick to join!"

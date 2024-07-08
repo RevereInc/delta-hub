@@ -19,6 +19,10 @@ public class DoubleJumpListener implements Listener {
         Player player = event.getPlayer();
 
         if (DeltaHub.getInstance().getConfigHandler().getSettingsConfig().getBoolean("double-jump.enabled")) {
+            if (player.getGameMode().name().equals("CREATIVE") || player.getGameMode().name().equals("SPECTATOR")) {
+                return;
+            }
+
             if (player.getAllowFlight()) {
                 player.setFlying(false);
                 player.playSound(player.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 1.0F, 1.0F);

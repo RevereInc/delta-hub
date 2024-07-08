@@ -27,7 +27,6 @@ public class ProfileListener implements Listener {
             player.setAllowFlight(true);
         }
 
-
         player.getInventory().setArmorContents(new ItemStack[4]);
         player.getInventory().setContents(new ItemStack[36]);
         player.getInventory().clear();

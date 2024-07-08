@@ -1,28 +1,41 @@
-title: "&b&lServer Selector"
+title: "&8Server Selector"
 rows: 3
 items:
   tnt-tag:
     name: "&b&lTNT TAG"
     material: TNT
-    slot: 12
-    command: "join eu-tnttag-1"
+    slot: 11
+    command: "joinqueue eu-tnttag-1"
     lore:
       - "&8&m----------------------"
-      - "&7Don't be it!"
-      - "&7Avoid being it by tagging"
-      - "&7other players."
+      - " &fDon't be it!"
+      - " &fAvoid being it by tagging"
+      - " &fother players."
+      - ""
+      - "&aClick to play!"
+      - "&8&m----------------------"
+  towny:
+    name: "&b&lTowny"
+    material: DIAMOND_SWORD
+    slot: 13
+    command: "joinqueue towny"
+    lore:
+      - "&8&m----------------------"
+      - " &fCreate and develop your own"
+      - " &ftown and nation. Be the best."
+      - " &fExperience 1.8 PvP"
       - ""
       - "&aClick to play!"
       - "&8&m----------------------"
   smp:
     name: "&b&lSMP"
     material: GRASS_BLOCK
-    slot: 14
-    command: "join eu-smp-1"
+    slot: 15
+    command: "joinqueue smp"
     lore:
       - "&8&m----------------------"
-      - "&7Survive and build together"
-      - "&7in a shared world."
+      - " &fSurvive and build together"
+      - " &fin a shared world."
       - ""
       - "&aClick to play!"
       - "&8&m----------------------"
