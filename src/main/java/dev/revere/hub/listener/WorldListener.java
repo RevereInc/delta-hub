@@ -1,9 +1,12 @@
 package dev.revere.hub.listener;
 
 import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByBlockEvent;
@@ -13,6 +16,7 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
@@ -35,7 +39,6 @@ public class WorldListener implements Listener {
     private void onItemDrop(PlayerDropItemEvent event) {
         Player player = event.getPlayer();
 
-
         if (player.getGameMode() == GameMode.SURVIVAL) {
             event.setCancelled(true);
         }
@@ -45,16 +48,24 @@ public class WorldListener implements Listener {
     private void onItemPickUp(PlayerPickupItemEvent event) {
         Player player = event.getPlayer();
 
-
         if (player.getGameMode() == GameMode.SURVIVAL) {
             event.setCancelled(true);
         }
     }
 
     @EventHandler
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        if (event.getAction() == Action.PHYSICAL) {
+            Block block = event.getClickedBlock();
+            if (block != null && block.getType() == Material.FARMLAND) {
+                event.setCancelled(true);
+            }
+        }
+    }
+
+    @EventHandler
     private void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-
 
         if (player.getGameMode() == GameMode.SURVIVAL) {
             event.setCancelled(true);
@@ -70,10 +81,8 @@ public class WorldListener implements Listener {
 
     @EventHandler
     private void onMoveItem(InventoryClickEvent event) {
+        Player player = (Player) event.getWhoClicked();
         if (event.getWhoClicked() instanceof Player) {
-            Player player = (Player) event.getWhoClicked();
-
-
             if (player.getGameMode() == GameMode.SURVIVAL) {
                 if (event.getClickedInventory() != null && event.getClickedInventory().equals(player.getInventory())) {
                     event.setCancelled(true);

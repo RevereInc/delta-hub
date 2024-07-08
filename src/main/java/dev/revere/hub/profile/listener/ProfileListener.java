@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.inventory.ItemStack;
 
 /**
  * @author Emmy
@@ -17,17 +18,22 @@ public class ProfileListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onJoin(PlayerJoinEvent event) {
-        Player joinedPlayer = event.getPlayer();
+        Player player = event.getPlayer();
 
-        joinedPlayer.setFlySpeed(1 * 0.1F);
-        joinedPlayer.setWalkSpeed(2 * 0.1F);
+        player.setFlySpeed(1 * 0.1F);
+        player.setWalkSpeed(2 * 0.1F);
 
         if (DeltaHub.getInstance().getConfigHandler().getSettingsConfig().getBoolean("double-jump.enabled")) {
-            joinedPlayer.setAllowFlight(true);
+            player.setAllowFlight(true);
         }
+
+
+        player.getInventory().setArmorContents(new ItemStack[4]);
+        player.getInventory().setContents(new ItemStack[36]);
+        player.getInventory().clear();
 
         event.setJoinMessage(null);
 
-        HotbarUtility.applySpawnItems(joinedPlayer);
+        HotbarUtility.applySpawnItems(player);
     }
 }
