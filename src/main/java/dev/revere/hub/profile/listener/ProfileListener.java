@@ -29,9 +29,5 @@ public class ProfileListener implements Listener {
         event.setJoinMessage(null);
 
         HotbarUtility.applySpawnItems(joinedPlayer);
-
-        if (DeltaHub.getInstance().getConfigHandler().getSettingsConfig().getBoolean("spawn.enable-tp")) {
-            DeltaHub.getInstance().getSpawnHandler().teleportToSpawn(joinedPlayer);
-        }
     }
 }
