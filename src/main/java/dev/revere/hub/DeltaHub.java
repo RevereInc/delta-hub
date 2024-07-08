@@ -7,6 +7,7 @@ import dev.revere.hub.feature.doublejump.DoubleJumpListener;
 import dev.revere.hub.feature.enderbutt.EnderPearlListener;
 import dev.revere.hub.feature.fireworklauncher.FireworkLauncherListener;
 import dev.revere.hub.feature.hotbar.listener.HotbarListener;
+import dev.revere.hub.listener.WorldListener;
 import dev.revere.hub.profile.listener.ProfileListener;
 import dev.revere.hub.utils.ServerUtil;
 import dev.revere.hub.utils.chat.CC;
@@ -85,6 +86,7 @@ public class DeltaHub extends JavaPlugin {
                 new HotbarListener(),
                 new DoubleJumpListener(),
                 new FireworkLauncherListener(),
+                new WorldListener(),
                 new MenuListener()
         ).forEach(listener -> Bukkit.getPluginManager().registerEvents(listener, this));
     }
